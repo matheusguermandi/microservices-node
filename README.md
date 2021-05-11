@@ -15,7 +15,7 @@ A aplicação **./restapi** é responsável por gerenciar toda parte de usuário
 **Entity**
 <br/>
 <br/>
-<img src="./_assets/apirest.jpeg" height="300">
+<img src="https://raw.githubusercontent.com/matheusguermandi/microservices-node/master/_assets/apirest.jpeg?token=AGUMDXIHNMP6S3A2XUUIAQLAUO33S" height="300">
 <br/>
 
 **EndPoints (Users + Session)**
@@ -66,7 +66,7 @@ O microservice **./ms-cart** é responsável por gerenciar toda regra de negóci
 **Entities**
 <br/>
 <br/>
-<img src="./_assets/ms-cart.jpeg" height="300">
+<img src="https://raw.githubusercontent.com/matheusguermandi/microservices-node/master/_assets/ms-cart.jpeg?token=AGUMDXP6UPS2H56FKM3YYSTAUO33Y" height="300">
 <br/>
 
 **Endpoints (Cart + Product Cart)**
@@ -94,7 +94,7 @@ O microservice **./ms-product** é responsável por gerenciar os produtos
 **Entity**
 <br/>
 <br/>
-<img src="./_assets/ms-product.jpeg" height="300">
+<img src="https://raw.githubusercontent.com/matheusguermandi/microservices-node/master/_assets/ms-product.jpeg?token=AGUMDXI73AGODNYNOUGRR2TAUO334" height="300">
 <br/>
 
 **EndPoints**
@@ -126,6 +126,17 @@ Para realizar a execução dos microservices é necessário possuir os seguintes
     - https://redis.io/
 - Insomnia - Opcional
     - https://insomnia.rest/products/insomnia
+
+### Docker
+
+Você pode utilizar alguns desses serviços a partir de um container docker, no caso segue os comandos
+
+- PostegreSQL
+    - docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 postgres
+- MongoDB
+    - docker run --name mongodb -p 27017:27017 -d -t mongo
+- Redis 
+    - docker run --name redis -p 6379:6379 -d -t redis:alpine
 
 ### Clonar e instalar dependências
 - 1° Clone o projeto em seu computador com o seguinte comando 
