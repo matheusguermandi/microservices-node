@@ -1,4 +1,4 @@
-# <center>Microservices NodeJS + TypeScript</center>
+# Microservices NodeJS + TypeScript
 
 ***
 
@@ -9,10 +9,11 @@ A aplicação **./restapi** é responsável por gerenciar toda parte de usuário
 **Funcionalidades**
 - Gerenciamento de usuários
 - Autenticação JWT e Rate limite
-- Gerenciamento das requisição para o microservice de Carrinho
-- Gerenciamento das requisição para o microservice de Produtos
+- Gerenciamento das requisições para o microservice de Carrinho
+- Gerenciamento das requisições para o microservice de Produto
 
 **Entity**
+<br/>
 <br/>
 <img src="./_assets/apirest.jpeg" height="300">
 <br/>
@@ -46,8 +47,8 @@ Rotas | Método  | Descrição
 ------|-------- |--------
 http://localhost:3333/carts/:id| GET | Busca carrinho
 http://localhost:3333/carts| POST | Cadastra carrinho
-http://localhost:3333/carts/product| PUT | Adiciona produto ao carrinho
-http://localhost:3333/carts/product/:cart/:product| DELETE | Exclui produto do carrinho 
+http://localhost:3333/carts/product| PUT | Adiciona produto no carrinho
+http://localhost:3333/carts/product/:cart_id/:product_id| DELETE | Exclui produto do carrinho 
 
 <br>
 
@@ -55,14 +56,15 @@ http://localhost:3333/carts/product/:cart/:product| DELETE | Exclui produto do c
 
 ## <i>Cart Microservice</i> 
 
-O microservice **./ms-cart** é responsável por gerenciar toda regra de negocio de um carrinho de compra e seus produto.  
+O microservice **./ms-cart** é responsável por gerenciar toda regra de negócio de um carrinho de compra e seus produtos.  
 
 **Funcionalidades**
 - Gerenciamento de um carrinho 
 - Gerenciamento dos produtos de um carrinho
-- Efetividade nas regras de negocios em uma iteração de um carrinho
+- Efetividade nas regras de negócios em uma iteração de um carrinho
 
 **Entities**
+<br/>
 <br/>
 <img src="./_assets/ms-cart.jpeg" height="300">
 <br/>
@@ -74,7 +76,7 @@ http://localhost:3334/cart/list| GET | Lista carrinhos
 http://localhost:3334/cart/:id| GET | Busca carrinho
 http://localhost:3334/cart| POST | Cadastra carrinho
 http://localhost:3334/cart/:id| DELETE | Exclui carrinho
-http://localhost:3334/product| POST | Adiciona produto ao carrinho
+http://localhost:3334/product| POST | Adiciona produto no carrinho
 http://localhost:3334/product/:id| PUT | Atualiza produto do carrinho
 http://localhost:3334/product/:id| DELETE | Exclui produto do carrinho
 
@@ -90,6 +92,7 @@ O microservice **./ms-product** é responsável por gerenciar os produtos
 - Gerenciamento de produtos 
 
 **Entity**
+<br/>
 <br/>
 <img src="./_assets/ms-product.jpeg" height="300">
 <br/>
@@ -152,20 +155,20 @@ Para realizar a execução dos microservices é necessário possuir os seguintes
     - **Obs.:** o usuário: root@root.com || root123! foi criado
 - 4° Execute o microservice
     - ```yarn server```
-- 5° Realize autenticação na rota http://localhost:3333/sessions
-- 6º Utilize o token (**Bearer Token**) para realizar as outras requisições
+- 5° Realize a autenticação na rota http://localhost:3333/sessions
+- 6º Utilize o token (**Bearer Token**) para realizar as requisições seguintes
 
 ### Executar testes - Api REST
-- 1° Acesse a aplicação **apirest** 
+- 1° Acesse a pasta da aplicação **apirest** 
     - ```cd apirest```
 - 2° Execute os testes
     - ```yarn jest```
-- 3° Acesse a pasta do coverage
+- 3° Acesse o arquivo ```index.html``` na pasta ./coverage
 
 ***
 
 ### Executar Microservice - Cart
-- 1° Acesse a aplicação **ms-cart** 
+- 1° Acesse a pasta do microservice **ms-cart** 
     - ```cd ms-cart```
 - 2° Crie um banco de dados Postgres e atualize o arquivo ```ormconfig.json``` com as credenciais corretas 
 - 3° Execute as migrations do banco 
@@ -176,7 +179,11 @@ Para realizar a execução dos microservices é necessário possuir os seguintes
 ***
 
 ### Executar Microservice - Product
-- 1° Acesse a aplicação **ms-product** 
+- 1° Acesse a pasta do microservice **ms-product** 
     - ```cd ms-product```
 - 2° Execute o microservice
     - ```yarn server```
+
+<br>
+
+***
