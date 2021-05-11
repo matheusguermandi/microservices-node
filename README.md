@@ -13,7 +13,9 @@ A aplicação **./restapi** é responsável por gerenciar toda parte de usuário
 - Gerenciamento das requisição para o microservice de Produtos
 
 **Entity**
+<br/>
 <img src="./_assets/apirest.jpeg" height="300">
+<br/>
 
 **EndPoints (Users + Session)**
 
@@ -61,7 +63,9 @@ O microservice **./ms-cart** é responsável por gerenciar toda regra de negocio
 - Efetividade nas regras de negocios em uma iteração de um carrinho
 
 **Entities**
+<br/>
 <img src="./_assets/ms-cart.jpeg" height="300">
+<br/>
 
 **Endpoints (Cart + Product Cart)**
 Rotas | Método  | Descrição
@@ -86,7 +90,9 @@ O microservice **./ms-product** é responsável por gerenciar os produtos
 - Gerenciamento de produtos 
 
 **Entity**
+<br/>
 <img src="./_assets/ms-product.jpeg" height="300">
+<br/>
 
 **EndPoints**
 Rotas | Método  | Descrição
@@ -96,3 +102,81 @@ http://localhost:3335/products/:id| GET | Busca produto
 http://localhost:3335/products| POST | Cadastra produto
 http://localhost:3335/products/:id| PUT | Atualiza produto
 http://localhost:3335/products/:id| DELETE | Exclui produto 
+
+<br>
+
+***
+
+# Instalação e execução
+
+Para realizar a execução dos microservices é necessário possuir os seguintes serviços instalados: 
+
+- NodeJS
+    - https://nodejs.org/
+- Yarn
+    - https://yarnpkg.com/
+- PostegreSQL
+    - https://www.postgresql.org/
+- MongoDB
+    - https://www.mongodb.com/
+- Redis
+    - https://redis.io/
+- Insomnia - Opcional
+    - https://insomnia.rest/products/insomnia
+
+### Clonar e instalar dependências
+- 1° Clone o projeto em seu computador com o seguinte comando 
+    - ```git clone https://github.com/matheusguermandi/microservices-node```
+- 2° Acesse a pasta com todos os projetos
+    - ```cd microservices-node```
+- 3° Acesse a aplicação **apirest** e instale suas dependências
+    - ```cd apirest```
+    - ```yarn install```
+    - ```cd ..```
+- 4° Acesse o microservice **ms-cart** e instale suas dependências
+    - ```cd ms-cart```
+    - ```yarn install```
+    - ```cd ..```
+- 5° Acesse o microservice **ms-product** e instale suas dependências
+    - ```cd ms-product```
+    - ```yarn install```
+    - ```cd ..```
+
+***
+### Executar Aplicação - Api REST
+- 1° Acesse a aplicação **apirest** 
+    - ```cd apirest```
+- 2° Crie um banco de dados Postgres e atualize o arquivo ```ormconfig.json``` com as credenciais corretas 
+- 3° Execute as migrations do banco 
+    - ```yarn typeorm migration:run```
+    - **Obs.:** o usuário: root@root.com || root123! foi criado
+- 4° Execute o microservice
+    - ```yarn server```
+- 5° Realize autenticação na rota http://localhost:3333/sessions
+- 6º Utilize o token (**Bearer Token**) para realizar as outras requisições
+
+### Executar testes - Api REST
+- 1° Acesse a aplicação **apirest** 
+    - ```cd apirest```
+- 2° Execute os testes
+    - ```yarn jest```
+- 3° Acesse a pasta do coverage
+
+***
+
+### Executar Microservice - Cart
+- 1° Acesse a aplicação **ms-cart** 
+    - ```cd ms-cart```
+- 2° Crie um banco de dados Postgres e atualize o arquivo ```ormconfig.json``` com as credenciais corretas 
+- 3° Execute as migrations do banco 
+    - ```yarn typeorm migration:run```
+- 4° Execute o microservice
+    - ```yarn server```
+
+***
+
+### Executar Microservice - Product
+- 1° Acesse a aplicação **ms-product** 
+    - ```cd ms-product```
+- 2° Execute o microservice
+    - ```yarn server```
